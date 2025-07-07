@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saransh - Digital Designer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Global Styles */
+      body {
+        font-family: "Inter", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f8f8;
+        color: #333;
+      }
+
+      .main-container {
+        max-width: 100%;
+        margin: 0;
+        padding: 100px 0 0 120px;
+      }
+
+      /* === POETRY SECTION === */
+      .poetry-section {
+        color: #737373;
+        line-height: 0.2;
+        letter-spacing: 0;
+        margin-bottom: 40px;
+      }
+
+      .poetry-intro {
+        font-weight: 100;
+        font-style: italic;
+        font-size: 28px;
+        margin: 0 0 25px 0;
+        line-height: 0.9;
+      }
+
+      .poetry-title {
+        font-weight: 400;
+        font-size: 28px;
+        margin: 0 0 10px 0;
+        line-height: 0.9;
+      }
+
+      .poetry-title span span {
+        font-weight: 100;
+        font-style: italic;
+      }
+
+      .poetry-subtitle {
+        font-size: 28px;
+        font-weight: 400;
+        margin: 0 0 10px 0;
+        line-height: 0.9;
+      }
+      .poetry-subtitle span span {
+        font-weight: 100;
+        font-style: italic;
+      }
+
+      .poetry-light {
+        font-weight: 100;
+        font-style: italic;
+      }
+
+      .poetry-medium {
+        font-weight: 400;
+      }
+
+      .poetry-line {
+        font-size: 28px;
+        font-weight: 400;
+        margin: 0 0 10px 0;
+        line-height: 0.9;
+      }
+
+      /* === BIO SECTION === */
+      .bio-section {
+        font-size: 15px;
+        font-weight: 400;
+        color: #b5b5b5;
+        margin-bottom: 20px;
+        line-height: 1.4;
+      }
+
+      .bio-name {
+        color: #737373;
+        font-weight: 600;
+      }
+
+      /* === CTA SECTION === */
+      .cta-section {
+        font-size: 15px;
+        font-weight: 400;
+        color: #b5b5b5;
+        line-height: 1.4;
+      }
+
+      .cta-link {
+        color: #4a90e2;
+        text-decoration: none;
+        margin: 0 2px;
+        transition: color 0.3s;
+      }
+
+      .cta-link:hover {
+        text-decoration: underline;
+        color: #2a70c2;
+      }
+
+      .desktop-only {
+        display: block;
+      }
+      .mobile-only {
+        display: none;
+      }
+
+      .download-button {
+        display: none;
+      }
+
+      .arrow-back,
+      .arrow-forward {
+        display: none;
+      }
+
+      /* === MENU SECTION === */
+      .menu-section {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 48px;
+        max-width: 1200px;
+        margin: 0 auto 0 auto;
+        padding: 50px 60px 40px 60px;
+        position: relative;
+      }
+      .menu-card {
+        flex: 1;
+        min-width: 180px;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .menu-bar {
+        height: 8px;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        position: relative;
+      }
+      .unsense-bar {
+        width: 100px;
+        background: #f5f5f5;
+      }
+      .view-bar {
+        width: 16px;
+        background: #e6f7d9;
+      }
+      .everything-bar {
+        width: 120px;
+        background: #f7f7e6;
+      }
+      .spark-bar {
+        width: 100px;
+        background: #f7e6f7;
+      }
+      .menu-dot {
+        position: absolute;
+        top: -2px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      .view-dot {
+        left: 18px;
+        background: #d2f7b6;
+      }
+      .everything-dot {
+        left: 122px;
+        background: #d2f7b6;
+      }
+      .spark-dot {
+        left: 102px;
+        background: #f7e6f7;
+      }
+      .menu-title {
+        font-size: 28px;
+        margin-bottom: 4px;
+        color: #888;
+        font-style: italic;
+      }
+      .menu-light {
+        font-weight: 100;
+      }
+      .menu-medium {
+        font-weight: 400;
+        font-style: normal;
+      }
+      .menu-divider {
+        color: #bbb;
+        font-style: normal;
+      }
+      .menu-desc {
+        color: #555;
+        font-size: 20px;
+      }
+
+      .menu-link {
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .menu-link:visited {
+        color: inherit;
+      }
+      .menu-link:active {
+        opacity: 0.8;
+      }
+      .menu-everything-link {
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+        font-style: italic;
+        font-size: 28px;
+        font-weight: 100;
+        padding: 0;
+        margin: 0;
+        background: none;
+        border: none;
+        outline: none;
+        display: inline;
+      }
+      .menu-everything-link:hover {
+        text-decoration: underline;
+        color: #395039;
+      }
+      .menu-nothing-link {
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+        font-size: 28px;
+        font-weight: 400;
+        font-style: normal;
+        padding: 0;
+        margin: 0;
+        background: none;
+        border: none;
+        outline: none;
+        display: inline;
+      }
+      .menu-nothing-link:hover {
+        text-decoration: underline;
+        color: #395039;
+      }
+
+      @media (max-width: 431px) and (max-height: 933px) {
+        .main-container {
+          padding: 60px 20px 0 50px;
+        }
+
+        .poetry-intro,
+        .poetry-title,
+        .poetry-subtitle,
+        .poetry-line {
+          font-size: 32px;
+          line-height: 1.4;
+        }
+
+        .bio-section,
+        .cta-section {
+          font-size: 17px;
+          line-height: 1.5;
+        }
+
+        .nowrap {
+          white-space: normal;
+        }
+
+        .line-mobile {
+          display: block;
+        }
+
+        .desktop-only {
+          display: none;
+        }
+        .mobile-only {
+          display: block;
+        }
+
+        .download-button {
+          display: block;
+          position: fixed;
+          z-index: 15;
+          top: 854px;
+          left: 188px;
+          width: 210px;
+          height: 43px;
+          border: none;
+          border-radius: 20px;
+          background-color: #1b1414;
+          font-family: "Inter", sans-serif;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 100%;
+          letter-spacing: 0;
+          color: #ffffff;
+          cursor: pointer;
+          align-items: center;
+          justify-content: center;
+          transition: background-color 0.3s ease;
+        }
+        .download-button:hover {
+          background-color: #393030;
+        }
+
+        .arrow-back,
+        .arrow-forward {
+          position: fixed;
+          display: block;
+          width: 45px;
+          height: 45px;
+          top: 854px;
+          background-color: #d9d9d9;
+          border: none;
+          border-radius: 32px;
+          font-size: 24px;
+          line-height: 1;
+          color: #395039;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          z-index: 10;
+        }
+        .arrow-back img,
+        .arrow-forward img {
+          width: 20px; /* adjust icon size as needed */
+          height: auto;
+          padding-top: 5px;
+          padding-right: 2px;
+        }
+
+        /* back arrow: flip the icon */
+        .arrow-forward img {
+          padding-bottom: 10px;
+          margin-left: 3px;
+          transform: rotate(180deg);
+        }
+
+        /* horizontal positions */
+        .arrow-back {
+          left: 70px;
+        }
+        .arrow-forward {
+          left: 130px;
+        }
+
+        /* NEW MOBILE MENU STYLES */
+        .menu-section {
+          flex-wrap: nowrap;
+          overflow: hidden;
+          gap: 0;
+          padding: 0 20px 40px 20px;
+          height: 220px;
+        }
+
+        .menu-card {
+          flex: 0 0 100%;
+          min-width: 100%;
+          transform: translateX(0);
+          transition: transform 0.3s ease-out;
+          opacity: 0;
+          position: absolute;
+          left: 0;
+          padding: 0 20px;
+          box-sizing: border-box;
+          display: none;
+        }
+
+        .menu-card.active {
+          opacity: 1;
+          display: flex;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <!-- Poetic Introduction -->
+      <div class="poetry-section">
+        <p class="poetry-intro">the</p>
+        <h1 class="poetry-title">
+          <span class="line-mobile">view of the</span>
+          <span class="line-mobile">priceless express</span>
+        </h1>
+        <p class="poetry-subtitle">
+          <span class="line-mobile">from <span>the</span> sparkling aura</span>
+          <span class="line-mobile">of <span>everything</span> </span>
+        </p>
+        <p class="poetry-line">
+          <span class="line-mobile">to nothing and beyond</span>
+          <span class="line-mobile">belongingness</span>
+        </p>
+        <p class="poetry-line">
+          <span class="line-mobile">where absurdity</span>
+          <span class="line-mobile"
+            >makes no <span class="poetry-light">un</span>sense</span
+          >
+        </p>
+      </div>
+
+      <!-- Bio Section -->
+      <div class="bio-section">
+        <!-- Desktop -->
+        <p class="bio-text desktop-only">
+          hey, my name is <span class="bio-name">Saransh</span>, and I have been
+          designing<br />
+          for the digital medium since 2010.
+        </p>
+        <!-- Mobile -->
+        <p class="bio-text mobile-only">
+          hey, my name is <span class="bio-name">Saransh</span>, and <br />
+          I have been designing for the digital medium <br />
+          since 2010.
+        </p>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="cta-section">
+        <!-- Desktop -->
+        <p class="cta-text desktop-only">
+          You may <a href="#" class="cta-link">click here</a> to download my
+          resume or
+          <br />
+          please <span class="nowrap">show some love by going</span>
+          <br />
+          through my website
+          <span class="nowrap"
+            >which I wholeheartedly conceptualized &amp; designed.</span
+          >
+        </p>
+        <!-- Mobile -->
+        <p class="cta-text mobile-only">
+          You may download my resume or <br />
+          please show some love by going through <br />
+          my website which I wholeheartedly <br />
+          conceptualized &amp; designed.
+        </p>
+      </div>
+    </div>
+
+    <!-- Four Menu Cards Section -->
+    <div class="menu-section" id="menuSection">
+      <!-- unsense -->
+      <a
+        href="page2.html"
+        class="menu-card menu-link active"
+        data-index="0"
+        style="text-decoration: none; color: inherit"
+      >
+        <div class="menu-bar unsense-bar"></div>
+        <div class="menu-title"><span class="menu-light">un</span>sense</div>
+        <div class="menu-desc">
+          know the designer<br />before you hire the designer
+        </div>
+      </a>
+      <!-- the view -->
+      <a
+        href="page3.html"
+        class="menu-card menu-link"
+        data-index="1"
+        style="text-decoration: none; color: inherit"
+      >
+        <div class="menu-bar view-bar">
+          <span class="menu-dot view-dot"></span>
+        </div>
+        <div class="menu-title"><span class="menu-light">the</span> view</div>
+        <div class="menu-desc">what services<br />can the designer offer</div>
+      </a>
+      <!-- everything | nothing -->
+      <div class="menu-card" data-index="2">
+        <div class="menu-bar everything-bar">
+          <span class="menu-dot everything-dot"></span>
+        </div>
+        <div class="menu-title">
+          <a href="page6.html" class="menu-everything-link"
+            ><span class="menu-light">everything</span></a
+          >
+          <span class="menu-divider">|</span>
+          <a href="page7.html" class="menu-nothing-link"
+            ><span class="menu-medium">nothing</span></a
+          >
+        </div>
+        <div class="menu-desc">
+          the designer is always happy<br />to serve as long as given some<br />space
+          and time
+        </div>
+      </div>
+      <!-- the spark -->
+      <a
+        href="page8.html"
+        class="menu-card menu-link"
+        data-index="3"
+        style="text-decoration: none; color: inherit"
+      >
+        <div class="menu-bar spark-bar">
+          <span class="menu-dot spark-dot"></span>
+        </div>
+        <div class="menu-title"><span class="menu-light">the</span> spark</div>
+        <div class="menu-desc">let the designer<br />get to know you</div>
+      </a>
+    </div>
+
+    <button class="arrow-back" id="arrowBack">
+      <img src="../assets/images/arrow.png" alt="back arrow" />
+    </button>
+    <button class="arrow-forward" id="arrowForward">
+      <img src="../assets/images/arrow.png" alt="forward arrow" />
+    </button>
+    <a
+      href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+      download
+    >
+      <button class="download-button">Download Resume</button>
+    </a>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Check if we're on mobile
+        const isMobile = window.matchMedia(
+          "(max-width: 431px) and (max-height: 933px)"
+        ).matches;
+
+        if (isMobile) {
+          const menuCards = document.querySelectorAll(".menu-card");
+          const arrowBack = document.getElementById("arrowBack");
+          const arrowForward = document.getElementById("arrowForward");
+          let currentIndex = 0;
+
+          // Initialize: show only the first card
+          showCard(currentIndex);
+
+          // Setup event listeners
+          arrowBack.addEventListener("click", function () {
+            navigateMenu(-1);
+          });
+
+          arrowForward.addEventListener("click", function () {
+            navigateMenu(1);
+          });
+
+          function navigateMenu(direction) {
+            // Hide current card
+            menuCards[currentIndex].classList.remove("active");
+
+            // Calculate new index
+            currentIndex =
+              (currentIndex + direction + menuCards.length) % menuCards.length;
+
+            // Show new card
+            showCard(currentIndex);
+          }
+
+          function showCard(index) {
+            // Hide all cards first
+            menuCards.forEach((card) => {
+              card.classList.remove("active");
+              card.style.display = "none";
+            });
+
+            // Show the current card
+            menuCards[index].classList.add("active");
+            menuCards[index].style.display = "flex";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

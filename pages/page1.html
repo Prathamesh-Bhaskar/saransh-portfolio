@@ -263,7 +263,8 @@
         color: #395039;
       }
 
-      @media (max-width: 431px) and (max-height: 933px) {
+      /* Mobile Styles - Now using just max-width for broader compatibility */
+      @media (max-width: 768px) {
         .main-container {
           padding: 60px 20px 0 50px;
         }
@@ -297,12 +298,70 @@
           display: block;
         }
 
-        .download-button {
+      /* Add a container for navigation elements */
+      .nav-container {
+        position: fixed;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        z-index: 20;
+      }
+
+      .download-button {
+        display: none; /* Hidden by default, shown in mobile */
+      }
+
+      .arrow-back,
+      .arrow-forward {
+        display: none; /* Hidden by default, shown in mobile */
+      }
+
+      /* Mobile Styles - Now using just max-width for broader compatibility */
+      @media (max-width: 768px) {
+        .main-container {
+          padding: 60px 20px 0 50px;
+        }
+
+        .poetry-intro,
+        .poetry-title,
+        .poetry-subtitle,
+        .poetry-line {
+          font-size: 32px;
+          line-height: 1.4;
+        }
+
+        .bio-section,
+        .cta-section {
+          font-size: 17px;
+          line-height: 1.5;
+        }
+
+        .nowrap {
+          white-space: normal;
+        }
+
+        .line-mobile {
           display: block;
-          position: fixed;
-          z-index: 15;
-          top: 854px;
-          left: 188px;
+        }
+
+        .desktop-only {
+          display: none;
+        }
+        .mobile-only {
+          display: block;
+        }
+
+        /* Nav container with arrows and button */
+        .nav-container {
+          padding: 0 20px;
+        }
+
+        .download-button {
+          display: flex;
           width: 210px;
           height: 43px;
           border: none;
@@ -311,8 +370,6 @@
           font-family: "Inter", sans-serif;
           font-weight: 400;
           font-size: 18px;
-          line-height: 100%;
-          letter-spacing: 0;
           color: #ffffff;
           cursor: pointer;
           align-items: center;
@@ -323,45 +380,31 @@
           background-color: #393030;
         }
 
+        /* Ensure navigation arrows are visible */
         .arrow-back,
         .arrow-forward {
-          position: fixed;
-          display: block;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           width: 45px;
           height: 45px;
-          top: 854px;
           background-color: #d9d9d9;
           border: none;
           border-radius: 32px;
           font-size: 24px;
           line-height: 1;
           color: #395039;
-          align-items: center;
-          justify-content: center;
           cursor: pointer;
-          z-index: 10;
         }
         .arrow-back img,
         .arrow-forward img {
-          width: 20px; /* adjust icon size as needed */
+          width: 20px;
           height: auto;
-          padding-top: 5px;
-          padding-right: 2px;
         }
 
         /* back arrow: flip the icon */
         .arrow-forward img {
-          padding-bottom: 10px;
-          margin-left: 3px;
           transform: rotate(180deg);
-        }
-
-        /* horizontal positions */
-        .arrow-back {
-          left: 70px;
-        }
-        .arrow-forward {
-          left: 130px;
         }
 
         /* NEW MOBILE MENU STYLES */
@@ -370,7 +413,8 @@
           overflow: hidden;
           gap: 0;
           padding: 0 20px 40px 20px;
-          height: 220px;
+          height: auto;
+          min-height: 220px;
         }
 
         .menu-card {
@@ -389,6 +433,41 @@
         .menu-card.active {
           opacity: 1;
           display: flex;
+        }
+      }
+    }
+      /* Small phones */
+      @media (max-width: 375px) {
+        .main-container {
+          padding: 40px 15px 0 30px;
+        }
+        
+        .poetry-intro,
+        .poetry-title,
+        .poetry-subtitle,
+        .poetry-line {
+          font-size: 28px;
+        }
+        
+        .download-button {
+          width: 160px;
+          font-size: 16px;
+        }
+        
+        .nav-container {
+          gap: 10px;
+        }
+      }
+      
+      /* Larger tablets */
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .main-container {
+          padding: 80px 40px 0 80px;
+        }
+        
+        .menu-section {
+          padding: 40px 40px 30px 40px;
+          gap: 30px;
         }
       }
     </style>
@@ -520,25 +599,26 @@
       </a>
     </div>
 
-    <button class="arrow-back" id="arrowBack">
-      <img src="../assets/images/arrow.png" alt="back arrow" />
-    </button>
-    <button class="arrow-forward" id="arrowForward">
-      <img src="../assets/images/arrow.png" alt="forward arrow" />
-    </button>
-    <a
-      href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
-      download
-    >
-      <button class="download-button">Download Resume</button>
-    </a>
+    <!-- Navigation container -->
+    <div class="nav-container">
+      <button class="arrow-back" id="arrowBack">
+        <img src="../assets/images/arrow.png" alt="back arrow" />
+      </button>
+      <button class="arrow-forward" id="arrowForward">
+        <img src="../assets/images/arrow.png" alt="forward arrow" />
+      </button>
+      <a
+        href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+        download
+      >
+        <button class="download-button">Download Resume</button>
+      </a>
+    </div>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        // Check if we're on mobile
-        const isMobile = window.matchMedia(
-          "(max-width: 431px) and (max-height: 933px)"
-        ).matches;
+        // Check if we're on mobile using a standard breakpoint
+        const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
         if (isMobile) {
           const menuCards = document.querySelectorAll(".menu-card");
@@ -546,6 +626,10 @@
           const arrowForward = document.getElementById("arrowForward");
           let currentIndex = 0;
 
+          // Make sure navigation arrows are visible
+          arrowBack.style.display = "flex";
+          arrowForward.style.display = "flex";
+          
           // Initialize: show only the first card
           showCard(currentIndex);
 
@@ -557,6 +641,29 @@
           arrowForward.addEventListener("click", function () {
             navigateMenu(1);
           });
+
+          // Add swipe gesture support for mobile
+          let touchStartX = 0;
+          let touchEndX = 0;
+          
+          document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+          }, false);
+          
+          document.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+          }, false);
+          
+          function handleSwipe() {
+            if (touchEndX < touchStartX) {
+              // Swipe left - go forward
+              navigateMenu(1);
+            } else if (touchEndX > touchStartX) {
+              // Swipe right - go back
+              navigateMenu(-1);
+            }
+          }
 
           function navigateMenu(direction) {
             // Hide current card
@@ -581,6 +688,16 @@
             menuCards[index].classList.add("active");
             menuCards[index].style.display = "flex";
           }
+          
+          // Handle window resize
+          window.addEventListener('resize', function() {
+            const isMobileNow = window.matchMedia("(max-width: 768px)").matches;
+            
+            // If switched between mobile and desktop
+            if (isMobileNow !== isMobile) {
+              location.reload(); // Refresh to adapt layout
+            }
+          });
         }
       });
     </script>

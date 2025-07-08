@@ -51,6 +51,42 @@
         text-decoration: none !important;
       }
 
+      .cross-icon {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 100px;
+        height: 100px;
+        cursor: pointer;
+        z-index: 5;
+      }
+
+      .cross-css {
+        position: relative;
+        width: 80%;
+        height: 100%;
+      }
+
+      .cross-css::before,
+      .cross-css::after {
+        content: "";
+        position: absolute;
+        left: 75%;
+        top: 30%;
+        width: 80%;
+        height: 2px;
+        background-color: #979797;
+        transform-origin: center;
+      }
+
+      .cross-css::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      .cross-css::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+
       .service-item.tertiary {
         text-decoration: none !important;
       }
@@ -73,7 +109,6 @@
         cursor: pointer;
       }
 
-      /* Apply Inter 300, 55px/55px, 0% letter-spacing, #BFBFBF to those three items */
       .service-item.secondary,
       .service-item.tertiary,
       .service-item.quaternary {
@@ -83,12 +118,13 @@
         line-height: 70px;
         letter-spacing: 0%;
         color: #bfbfbf;
-        opacity: 1; /* if you want them fully opaque by default */
+        opacity: 1;
       }
+      
       .service-item.quaternary {
         text-decoration: none !important;
       }
-      /* Modified style for the service items based on specifications */
+
       .service-item {
         font-family: "Inter", sans-serif;
         font-weight: 300;
@@ -160,7 +196,6 @@
         padding-top: 80px;
       }
 
-      /* "the view" label */
       .view-label {
         font-family: "Inter", sans-serif;
         font-weight: 100;
@@ -171,7 +206,6 @@
         color: #737373;
       }
 
-      /* the <span> "view" */
       .view-label span {
         font-family: "Inter", sans-serif;
         font-weight: 400;
@@ -220,13 +254,13 @@
       /* Cursor pointer */
       .cursor-pointer {
         position: absolute;
-        top: 190px; /* Adjust as needed */
-        left: -10px; /* Adjust as needed */
+        top: 190px;
+        left: -10px;
         z-index: 3;
       }
 
       .pointer-image {
-        width: 350px; /* Scale to desired size */
+        width: 350px;
         height: auto;
       }
 
@@ -239,7 +273,7 @@
         display: none;
       }
 
-      /* Responsive design */
+      /* Tablet styles */
       @media (min-width: 768px) {
         .portfolio-container {
           flex-direction: row;
@@ -257,7 +291,7 @@
         }
 
         .service-item {
-          font-size: 55px; /* Maintain 55px even at this breakpoint */
+          font-size: 55px;
         }
 
         .view-section {
@@ -273,7 +307,7 @@
         }
 
         .service-item {
-          font-size: 55px; /* Ensure consistent 55px size */
+          font-size: 55px;
         }
 
         .description-text {
@@ -281,16 +315,42 @@
         }
       }
 
-      @media (max-width: 431px) and (max-height: 933px) {
+      /* Enhanced Mobile Responsive Design - Exact Screenshot Match */
+      
+      /* All mobile devices */
+      @media (max-width: 768px) {
+        .portfolio-container {
+          flex-direction: column;
+          min-height: 100vh;
+        }
+
         .services {
-          margin-left: 20px;
+          width: 100%;
+          margin-left: 0;
+          min-height: auto;
+          padding: 0;
+          position: relative;
+        }
+
+        .services-list {
+          margin-left: 8vw;
+          margin-top: 15vh;
+          margin-right: 8vw;
         }
 
         .service-item {
-          font-size: 49px;
-          line-height: 54px;
-          width: 272px;
-          margin-left: 26px;
+          font-size: clamp(32px, 8vw, 48px);
+          line-height: 1.1;
+          margin-bottom: 0;
+          color: #737373;
+          font-weight: 300;
+          white-space: normal;
+          word-break: break-word;
+        }
+
+        .service-item.primary {
+          color: #737373;
+          opacity: 1;
         }
 
         .service-item.secondary,
@@ -299,104 +359,134 @@
           display: none;
         }
 
+        /* Cross icon positioned like in screenshot */
+        .cross-icon {
+          position: fixed;
+          top: 4vh;
+          left: 6vw;
+          right: auto;
+          width: 24px;
+          height: 24px;
+          z-index: 20;
+        }
+
+        .cross-css::before,
+        .cross-css::after {
+          width: 100%;
+          height: 1.5px;
+          background-color: #737373;
+          left: 50%;
+          top: 50%;
+        }
+
+        /* Description section - positioned in middle */
+        .description {
+          width: 100%;
+          margin: 0;
+          padding: 1rem 8vw;
+          position: relative;
+          z-index: 2;
+        }
+
+        .description-text {
+          margin: 0;
+          max-width: 100%;
+        }
+
+        .description-text p {
+          font-size: clamp(14px, 3.8vw, 16px);
+          line-height: 1.5;
+          margin-bottom: 1.2rem;
+          color: #737373;
+          font-weight: 400;
+        }
+
+        /* View section positioned at bottom */
         .view-section {
-          position: absolute;
-          top: 670px;
-          left: -281px;
+          position: fixed;
+          bottom: 12vh;
+          left: 8vw;
+          margin: 0;
+          padding: 0;
+          z-index: 10;
         }
 
         .view-label,
         .view-label span {
-          font-size: 29px;
+          font-size: clamp(18px, 4.5vw, 24px);
+          color: #737373;
         }
 
         .view-description {
-          font-size: 16px;
-          margin-top: 6px;
+          font-size: clamp(12px, 3.2vw, 16px);
+          margin-top: 0.3rem;
           font-weight: 400;
+          line-height: 1.2;
+          color: #737373;
         }
 
-        .description {
-          margin-left: 60px;
-          margin-top: -185px;
-          max-width: 78%;
-        }
-
-        .description-text p {
-          font-size: 0.95rem;
-          line-height: 123%;
-          margin-bottom: 1rem;
-        }
-
+        /* Ellipses positioned exactly like screenshot */
         .ellipse-1 {
           position: absolute;
-          width: 482px;
-          height: 482px;
-          top: -283px;
-          left: 67px;
+          width: clamp(280px, 80vw, 400px);
+          height: clamp(280px, 80vw, 400px);
+          top: -10vh;
+          right: -15vw;
+          background-color: #ffcdcd;
+          z-index: 0;
         }
 
         .ellipse-2 {
           position: absolute;
-          width: 482px;
-          height: 482px;
-          top: 240px;
-          left: 67px;
+          width: clamp(300px, 85vw, 450px);
+          height: clamp(300px, 85vw, 450px);
+          top: 35vh;
+          left: -20vw;
+          background-color: #fff3cd;
+          z-index: 0;
         }
 
         .ellipse-3 {
           position: absolute;
-          width: 482px;
-          height: 482px;
-          top: 782px;
-          left: 67px;
+          width: clamp(250px, 70vw, 350px);
+          height: clamp(250px, 70vw, 350px);
+          top: 75vh;
+          right: -10vw;
+          background-color: #e4ffcd;
+          z-index: 0;
         }
 
         .cursor-pointer {
           display: none;
         }
 
-        .cross-icon {
-          width: 60px;
-          height: 60px;
-          top: 20px;
-          right: 20px;
-        }
-
-        .cross-css {
-          position: relative;
-          width: 57%;
-          height: 63%;
-          left: -335px;
-        }
-
         .dot {
-          top: 708px;
-          left: 59px;
+          display: none;
         }
 
+        /* Mobile navigation buttons - exactly like screenshot */
         .download-button {
           display: block;
           position: fixed;
           z-index: 15;
-          top: 854px;
-          left: 188px;
-          width: 210px;
-          height: 43px;
+          bottom: 3vh;
+          right: 6vw;
+          width: clamp(140px, 35vw, 180px);
+          height: clamp(36px, 9vw, 44px);
           border: none;
           border-radius: 20px;
           background-color: #1b1414;
           font-family: "Inter", sans-serif;
           font-weight: 400;
-          font-size: 18px;
-          line-height: 100%;
-          letter-spacing: 0;
+          font-size: clamp(12px, 3.2vw, 16px);
           color: #ffffff;
           cursor: pointer;
+          display: flex;
           align-items: center;
           justify-content: center;
           transition: background-color 0.3s ease;
         }
+
         .download-button:hover {
           background-color: #393030;
         }
@@ -404,49 +494,46 @@
         .arrow-back,
         .arrow-forward {
           position: fixed;
-          display: block;
-          width: 45px;
-          height: 45px;
-          top: 854px;
+          display: flex;
+          width: clamp(36px, 9vw, 44px);
+          height: clamp(36px, 9vw, 44px);
+          bottom: 3vh;
           background-color: #d9d9d9;
           border: none;
-          border-radius: 32px;
-          font-size: 24px;
-          line-height: 1;
-          color: #395039;
+          border-radius: 50%;
           align-items: center;
           justify-content: center;
           cursor: pointer;
-          z-index: 10;
+          z-index: 15;
         }
+
         .arrow-back img,
         .arrow-forward img {
-          width: 20px; /* adjust icon size as needed */
+          width: clamp(14px, 3.5vw, 18px);
           height: auto;
-          padding-top: 5px;
-          padding-right: 2px;
         }
 
-        /* back arrow: flip the icon */
         .arrow-forward img {
-          padding-bottom: 10px;
-
-          margin-left: 3px;
           transform: rotate(180deg);
         }
 
-        /* horizontal positions */
         .arrow-back {
-          left: 70px;
+          left: 6vw;
         }
+
         .arrow-forward {
-          left: 130px;
+          left: calc(6vw + clamp(46px, 11vw, 54px));
         }
       }
+
+
     </style>
   </head>
 
   <body>
+    <a href="page1.html" class="cross-icon" style="text-decoration: none">
+      <div class="cross-css"></div>
+    </a>
     <div id="root">
       <div class="dot"></div>
 
@@ -463,11 +550,8 @@
             <a href="page10.html" class="service-item secondary">
               graphic design & illustrations
             </a>
-            <a href="page4.html" class="service-item tertiary">brand identity</a
-            ><br />
-            <a href="page5.html" class="service-item quaternary"
-              >print & packaging design</a
-            >
+            <a href="page4.html" class="service-item tertiary">brand identity</a><br/>
+            <a href="page5.html" class="service-item quaternary">print & packaging design</a>
           </div>
 
           <div class="cursor-pointer">
@@ -514,6 +598,7 @@
           </div>
         </section>
       </main>
+      
       <button class="arrow-back">
         <img src="../assets/images/arrow.png" alt="back arrow" />
       </button>
@@ -542,6 +627,17 @@
             this.classList.add("primary");
           });
         });
+
+        // Mobile: arrow-forward redirects to page4.html
+        const arrowForward = document.querySelector('.arrow-forward');
+        if (arrowForward) {
+          arrowForward.addEventListener('click', function () {
+            // Only redirect on mobile screens
+            if (window.innerWidth <= 768) {
+              window.location.href = 'page4.html';
+            }
+          });
+        }
       });
     </script>
   </body>

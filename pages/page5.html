@@ -218,6 +218,7 @@
         .text-group {
           max-width: 100%;
           width: 100%;
+          
         }
 
         .text-line {
@@ -473,4 +474,24 @@
       <button class="download-button">Download Resume</button>
     </a>
   </body>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const arrowBack = document.querySelector('.arrow-back');
+      if (arrowBack) {
+        arrowBack.addEventListener('click', function () {
+          if (window.innerWidth <= 768) {
+            window.location.href = 'page4.html';
+          }
+        });
+      }
+      const arrowForward = document.querySelector('.arrow-forward');
+      if (arrowForward) {
+        arrowForward.addEventListener('click', function () {
+          if (window.innerWidth <= 768) {
+            window.location.href = 'page10.html';
+          }
+        });
+      }
+    });
+  </script>
 </html>

@@ -396,4 +396,16 @@
       <button class="download-button">Download Resume</button>
     </a>
   </body>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const arrowBack = document.querySelector('.arrow-back');
+      if (arrowBack) {
+        arrowBack.addEventListener('click', function () {
+          if (window.innerWidth <= 768) {
+            window.location.href = 'page5.html';
+          }
+        });
+      }
+    });
+  </script>
 </html>

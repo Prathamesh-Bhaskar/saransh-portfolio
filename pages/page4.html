@@ -385,6 +385,144 @@
           left: 130px;
         }
       }
+      /* Enhanced Mobile Responsive Design for all mobile screens */
+      @media (max-width: 768px) {
+        .rectangle-6 {
+          left: 6vw;
+          top: 32vh;
+          width: 88vw;
+          height: 45vh;
+          padding: 4vw;
+        }
+
+        .rectangle-6-text {
+          margin-left: 0;
+          margin-top: 0;
+          font-size: clamp(12px, 3.5vw, 15px);
+          line-height: 1.4;
+          font-weight: 400;
+          letter-spacing: 1px;
+        }
+
+        .new-rectangle {
+          top: 60vh;
+          left: 6vw;
+          width: 28vw;
+          height: 8vh;
+        }
+
+        .dot {
+          top: 85vh;
+          left: 10vw;
+          width: 3vw;
+          height: 3vw;
+          border-radius: 50%;
+        }
+
+        .the-view {
+          top: 90vh;
+          left: 10vw;
+          font-size: clamp(20px, 6vw, 40px);
+        }
+
+        .services {
+          top: 95vh;
+          left: 10vw;
+          font-size: clamp(14px, 4vw, 25px);
+          line-height: 1.2;
+        }
+
+        .text {
+          display: none;
+        }
+
+        .brand-identity-moblie {
+          display: block;
+          position: absolute;
+          top: 12vh;
+          left: 18vw;
+          font-size: clamp(18px, 6vw, 32px);
+          color: #272525;
+        }
+
+        .cursor-pointer {
+          display: none;
+        }
+
+        .cross-icon {
+          width: 40px;
+          height: 40px;
+          top: 3vh;
+          left: 4vw;
+          right: auto;
+        }
+
+        .horizontal-line {
+          top: 28vh;
+          display: block;
+          width: 92vw;
+          left: 4vw;
+        }
+
+        .vertical-line {
+          display: none;
+        }
+
+        .download-button {
+          display: block;
+          position: fixed;
+          z-index: 15;
+          bottom: 3vh;
+          right: 6vw;
+          width: clamp(120px, 35vw, 180px);
+          height: clamp(36px, 9vw, 44px);
+          border: none;
+          border-radius: 20px;
+          background-color: #1b1414;
+          font-family: "Inter", sans-serif;
+          font-weight: 400;
+          font-size: clamp(12px, 3.2vw, 16px);
+          color: #ffffff;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background-color 0.3s ease;
+        }
+        .download-button:hover {
+          background-color: #393030;
+        }
+
+        .arrow-back,
+        .arrow-forward {
+          position: fixed;
+          display: flex;
+          width: clamp(36px, 9vw, 44px);
+          height: clamp(36px, 9vw, 44px);
+          bottom: 3vh;
+          background-color: #d9d9d9;
+          border: none;
+          border-radius: 50%;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          z-index: 15;
+        }
+        .arrow-back img,
+        .arrow-forward img {
+          width: clamp(14px, 3.5vw, 18px);
+          height: auto;
+        }
+        .arrow-forward img {
+          transform: rotate(180deg);
+        }
+        .arrow-back {
+          left: 6vw;
+        }
+        .arrow-forward {
+          left: calc(6vw + clamp(46px, 11vw, 54px));
+        }
+      }
     </style>
   </head>
   <body>
@@ -458,4 +596,20 @@
       <button class="download-button">Download Resume</button>
     </a>
   </body>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const arrowBack = document.querySelector('.arrow-back');
+      if (arrowBack) {
+        arrowBack.addEventListener('click', function () {
+          window.location.href = 'page3.html';
+        });
+      }
+      const arrowForward = document.querySelector('.arrow-forward');
+      if (arrowForward) {
+        arrowForward.addEventListener('click', function () {
+          window.location.href = 'page5.html';
+        });
+      }
+    });
+  </script>
 </html>
